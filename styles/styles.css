@@ -1,0 +1,326 @@
+/* Universal Box-Sizing for Easier Layout */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Basic Reset & Body Styling */
+body {
+    margin: 0;
+    /* Using a generic sans-serif that looks close to your design, 
+       but exact font needs specific font files/imports. */
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f8f8f8; /* Light background to match the image */
+    line-height: 1.5; /* Default line height */
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts */
+}
+
+/* Container for consistent content width */
+.container {
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto;
+    padding: 0 20px; /* Add some horizontal padding to prevent content touching edges */
+}
+
+/* Header & Navigation */
+header {
+    background-color: #fff;
+    padding: 15px 0; /* Vertical padding */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Added a subtle shadow for better separation */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Match container width */
+    margin: 0 auto;
+    padding: 0 20px; /* Consistent padding for nav content */
+}
+
+.logo img {
+    height: 40px; /* Adjust logo size */
+    display: block; /* Remove extra space below image */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Align nav items vertically */
+}
+
+nav ul li {
+    margin-left: 35px; /* Spacing between nav items - slightly increased for visual match */
+}
+
+/* Styling for navigation links, including the one with the icon */
+nav ul li a {
+    text-decoration: none;
+    color: #555; /* Default text color for links */
+    font-weight: 500;
+    font-size: 1.05em; /* Slightly larger for clarity */
+    transition: color 0.3s ease;
+    display: flex; /* Makes the link a flex container to align icon and text */
+    align-items: center; /* Vertically aligns icon and text in the middle */
+    gap: 7px; /* Space between icon and text */
+}
+
+nav ul li a:hover {
+    color: #e67e22; /* Example hover color for links */
+}
+
+/* Styling for the Font Awesome icon (i tag) */
+.nav-icon {
+    font-size: 1.1em; /* Adjust size to make it look similar to your image */
+    color: #555; /* Set the color of the icon to match the text */
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 50px; /* Adjust padding for spacing */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px; /* Increased space between text and image */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    text-align: center; /* Center text by default for wrapping */
+    min-height: 500px; /* Ensure hero section has a minimum height */
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px; /* Ensure content doesn't get too squished */
+    text-align: left; /* Text aligns left within its container */
+    padding-bottom: 20px; /* Add some padding bottom for when image wraps */
+}
+
+.hero-content h1 {
+    font-size: 3.8em; /* Large font size for heading - slightly bigger for impact */
+    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #333; /* Default color for h1 (if not overridden by a span) */
+    font-weight: bold; /* Ensure it's bold */
+}
+
+/* This targets ONLY the 'ALWAYS' text and sets its color to black */
+.hero-content h1 .always-black {
+    color: #000; /* Confirmed: Black color for "ALWAYS" */
+}
+
+/* This targets 'FRESH' and 'FLOWERS' to set their color to orange */
+.hero-content h1 .highlight {
+    color: #e67e22; /* Confirmed: Orange color for "FRESH" and "FLOWERS" */
+}
+
+.hero-content p {
+    font-size: 1.15em; /* Slightly larger for readability */
+    line-height: 1.6;
+    max-width: 550px; /* Slightly wider text block */
+    color: #666;
+    margin-top: 20px; /* More space above paragraph */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 350px; /* Ensure image doesn't get too squished */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures image covers its area well */
+    border-radius: 8px; /* Added subtle border-radius for consistency */
+}
+
+/* Our Plants Section */
+.plants-section {
+    padding: 80px 0; /* More vertical padding for section separation */
+    text-align: center;
+    background-color: #fff; /* White background for this section */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03); /* Subtle shadow above it */
+}
+
+/* Sets the default color for the ENTIRE 'Our Plants' heading, so 'Plants' will be dark */
+.plants-section .section-title {
+    font-size: 2.8em; /* Larger title */
+    color: #333; /* Confirmed: Dark color for the 'Plants' part of the title */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* This targets ONLY the 'Our' within the section title to make it orange */
+.plants-section .section-title .highlight-our {
+    color: #e67e22; /* Confirmed: Orange color for "Our" */
+}
+
+
+.plants-section .section-description {
+    font-size: 1.15em; /* Slightly larger font for description */
+    color: #666;
+    max-width: 750px; /* Wider text block for description */
+    margin: 0 auto 50px auto; /* More space below description */
+    line-height: 1.6;
+}
+
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted min-width for better fit */
+    gap: 30px; /* Increased space between cards */
+    justify-content: center; /* Center grid items if they don't fill a row */
+}
+
+.plant-card {
+    background-color: #fff;
+    padding: 25px; /* Increased padding inside card */
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Stronger, more visible shadow */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee; /* Subtle border to define cards better */
+    display: flex; /* Added flex for internal layout */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: space-between; /* Distribute space */
+}
+
+.plant-card:hover {
+    transform: translateY(-8px); /* Lift card more on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* More prominent shadow on hover */
+}
+
+.plant-image {
+    max-width: 100%;
+    height: 180px; /* Fixed height for consistent image size */
+    object-fit: contain; /* Ensure image fits within bounds without cropping */
+    margin-bottom: 20px; /* More space below image */
+}
+
+.plant-card h3 {
+    font-size: 1.5em; /* Larger product title */
+    color: #333;
+    margin-bottom: 8px; /* More space below title */
+    font-weight: 600; /* Slightly bolder */
+}
+
+.plant-card .price {
+    font-size: 1.3em; /* Larger price font */
+    color: #e67e22; /* Orange color for price */
+    font-weight: bold;
+    margin-bottom: 20px; /* More space above button */
+}
+
+.add-to-cart-btn {
+    background-color: #e67e22; /* Orange button background */
+    color: #fff;
+    border: none;
+    padding: 14px 30px; /* Larger button padding */
+    border-radius: 6px; /* Slightly more rounded corners for buttons */
+    cursor: pointer;
+    font-size: 1.05em; /* Slightly larger font for button text */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Slight letter spacing */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Make button full width for better click area */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #d66a1a; /* Slightly darker orange on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero {
+        padding: 60px 30px;
+        gap: 40px;
+    }
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .plants-section {
+        padding: 60px 0;
+    }
+    .plant-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    header, nav {
+        padding: 15px 15px;
+    }
+    nav ul li {
+        margin-left: 25px; /* Adjusted nav spacing */
+    }
+    .hero {
+        padding: 50px 20px;
+        flex-direction: column; /* Stack hero content vertically */
+        text-align: center; /* Center align text for column layout */
+    }
+    .hero-content {
+        text-align: center; /* Ensure text is centered in column layout */
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .plants-section {
+        padding: 40px 0;
+    }
+    .plants-section .section-title {
+        font-size: 2.2em;
+    }
+    .plants-section .section-description {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    .plant-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust grid for smaller screens */
+    }
+    .plant-card {
+        padding: 15px;
+    }
+    .plant-image {
+        height: 150px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    nav ul li {
+        margin-left: 0;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .plants-section .section-title {
+        font-size: 1.8em;
+    }
+    .plant-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+    .add-to-cart-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .plants-section {
+        padding: 40px 15px;
+    }
+}
