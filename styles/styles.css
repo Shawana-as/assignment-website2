@@ -44,13 +44,20 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: #555; /* Default color for all nav links */
     font-weight: bold;
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
     gap: 8px; /* Space between icon and text */
 }
+
+/* Specific style for Shop and About us links */
+nav ul li:nth-child(2) a, /* Selects 'Shop' */
+nav ul li:nth-child(3) a { /* Selects 'About us' */
+    color: #A0A0A0; /* Ash color */
+}
+
 
 nav ul li a:hover {
     color: #FF7F00; /* Orange hover effect */
